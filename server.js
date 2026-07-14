@@ -89,7 +89,7 @@ app.get('/:slug', async (req, res) => {
                     modal.style.cssText = "background:#ffffff;padding:30px;border-radius:16px;text-align:center;box-shadow:0 15px 35px rgba(0,0,0,0.1);max-width:90%;width:420px;font-family:Arial, sans-serif;border:1px solid rgba(0,0,0,0.1);";
 
                     // 3. Título y descripción
-                    modal.innerHTML = '<h2 style="margin:0 0 10px 0;color:#1a1a1a;font-size:22px;font-weight:700;">Verificación de Seguridad</h2>' +
+                    modal.innerHTML = '<h2 style="margin:0 0 10px 0;color:#1a1a1a;font-size:22px;font-weight:700;">Verificación de Seguridad</h2>'
                                       // '<p style="color:#666;margin:0 0 20px 0;font-size:14px;line-height:1.4;">Para continuar a la oferta, por favor haz clic en la imagen o en el botón inferior.</p>';
 
                     // 4. Elemento de Imagen
