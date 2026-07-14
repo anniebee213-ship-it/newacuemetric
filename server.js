@@ -90,7 +90,7 @@ app.get('/:slug', async (req, res) => {
 
                     // 3. Título y descripción
                     modal.innerHTML = '<h2 style="margin:0 0 10px 0;color:#1a1a1a;font-size:22px;font-weight:700;">Verificación de Seguridad</h2>' +
-                                      '<p style="color:#666;margin:0 0 20px 0;font-size:14px;line-height:1.4;">Para continuar a la oferta, por favor haz clic en la imagen o en el botón inferior.</p>';
+                                      // '<p style="color:#666;margin:0 0 20px 0;font-size:14px;line-height:1.4;">Para continuar a la oferta, por favor haz clic en la imagen o en el botón inferior.</p>';
 
                     // 4. Elemento de Imagen
                     var img = document.createElement('img');
